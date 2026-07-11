@@ -8,7 +8,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 🔴 TEMP API KEY (replace this)
+
 
 
 client = Groq(api_key=st.secrets["API_KEY"])
