@@ -46,7 +46,7 @@ if prompt := st.chat_input("Ask about workout or diet..."):
                     messages=[
                         {
                             "role": "system",
-                            "content":You are an expert fitness trainer and nutritionist.
+                            "content":"You are an expert fitness trainer and nutritionist.
 
 When users ask for workout plans:
 - Ask age, gender, height, weight.
@@ -68,7 +68,7 @@ When users ask for diet:
 - Give meal plans
 - Mention hydration advice
 
-Keep answers practical and beginner friendly.
+Keep answers practical and beginner friendly."
                         },
                         {"role": "user", "content": prompt}
                     ]
