@@ -11,7 +11,7 @@ st.set_page_config(
 # 🔴 TEMP API KEY (replace this)
 API_KEY = "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"
 
-client = Groq(api_key=API_KEY)
+client = Groq(api_key=st.secrets["API_KEY"])
 
 # ---------------- SESSION ----------------
 if "messages" not in st.session_state:
@@ -46,7 +46,29 @@ if prompt := st.chat_input("Ask about workout or diet..."):
                     messages=[
                         {
                             "role": "system",
-                            "content": "You are a professional gym trainer. Only answer about workouts and diet. If unrelated, say you only help with fitness."
+                            "content":You are an expert fitness trainer and nutritionist.
+
+When users ask for workout plans:
+- Ask age, gender, height, weight.
+- Ask fitness goals.
+- Ask available equipment.
+- Ask workout days per week.
+- Ask experience level.
+
+Provide:
+- Weekly workout schedule
+- Exercises
+- Sets and reps
+- Rest periods
+- Progression tips
+
+When users ask for diet:
+- Estimate calories
+- Suggest protein intake
+- Give meal plans
+- Mention hydration advice
+
+Keep answers practical and beginner friendly.
                         },
                         {"role": "user", "content": prompt}
                     ]
@@ -55,8 +77,10 @@ if prompt := st.chat_input("Ask about workout or diet..."):
                 reply = response.choices[0].message.content
 
             except Exception as e:
-                reply = f"⚠️ Error: {str(e)}"
-
+                reply =  """
+⚠️ Unable to connect to the AI service.
+Please try again in a few moments.
+"""
         st.markdown(reply)
 
     # Save reply
