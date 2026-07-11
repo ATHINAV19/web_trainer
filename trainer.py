@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 # 🔴 TEMP API KEY (replace this)
-API_KEY = "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"
+
 
 client = Groq(api_key=st.secrets["API_KEY"])
 
